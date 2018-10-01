@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting Profile="standard" ProjectType="SylixOSAppProject" RealEvoVer="3.9.5 Experience"/>
+<OutputSetting>
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<BuildSetting CoustomCfgMakefile="false" NeedReBuild="false" NotScanSourceFile="false"/>
+<UploadPath>
+<PairItem key="$(WORKSPACE_sylixos_awtk)/$(Output)/strip/sylixos_awtk" value="/apps/sylixos_awtk/sylixos_awtk"/>
+</UploadPath>
+<DeviceSetting DevName="192.168.7.30" WorkDir="/apps/sylixos_awtk"/>
+</SylixOSSetting>

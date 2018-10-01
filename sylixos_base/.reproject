@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting Profile="standard" ProjectType="SylixOSBaseProject" RealEvoVer="3.9.5 Experience"/>
+<OutputSetting>
+<OutputSetting Name="libsylixos" Path="libsylixos" TreeNode="libsylixos">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libcextern" Path="libcextern" TreeNode="libcextern">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+</OutputSetting>
+<UploadPath>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\libvpmpdm.so" value="/lib/libvpmpdm.so"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\xinput.ko" value="/lib/modules/xinput.ko"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\xsiipc.ko" value="/lib/modules/xsiipc.ko"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\env" value="/usr/bin/env"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\kidvpn" value="/sbin/kidvpn"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\libmbedcrypto.so" value="/lib/libmbedcrypto.so"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\libmbedtls.so" value="/lib/libmbedtls.so"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\libmbedx509.so" value="/lib/libmbedx509.so"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libsylixos\$(Output)\strip\libstdc++.so" value="/lib/libstdc++.so"/>
+<PairItem key="$(WORKSPACE_sylixos_base)\libcextern\$(Output)\strip\libcextern.so" value="/lib/libcextern.so"/>
+</UploadPath>
+<BuildSetting CoustomCfgMakefile="false" NotScanSourceFile="false"/>
+</SylixOSSetting>
