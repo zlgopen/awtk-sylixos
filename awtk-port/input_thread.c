@@ -1,7 +1,7 @@
 ﻿/**
  * File:   input_thread.c
  * Author: AWTK Develop Team
- * Brief:  thread to read /dev/input/
+ * Brief:  thread to read mouse events
  *
  * Copyright (c) 2018 - 2018  Guangzhou ZHIYUAN Electronics Co.,Ltd.
  *
@@ -15,24 +15,24 @@
 /**
  * History:
  * ================================================================
- * 2018-09-07 Li XianJing <xianjimli@hotmail.com> created
+ * 2018-10-02 Li XianJing <xianjimli@hotmail.com> created
  *
  */
 
 #include <errno.h>
+#include <stdio.h>
 #include <fcntl.h>
-#include <unistd.h>
+#include <mouse.h>
 #include "base/mem.h"
 #include "base/keys.h"
 #include "base/thread.h"
 #include "input_thread.h"
 
-#ifndef EV_SYN
-#define EV_SYN 0x00
-#endif
-
 typedef struct _run_info_t {
   int fd;
+  int32_t x;
+  int32_t y;
+  bool_t pressed;
   int32_t max_x;
   int32_t max_y;
   void* dispatch_ctx;
@@ -40,12 +40,6 @@ typedef struct _run_info_t {
 
   event_queue_req_t req;
 } run_info_t;
-
-static const int32_t s_key_map[0x100] = {};
-
-static int32_t map_key(uint8_t code) {
-  return s_key_map[code];
-}
 
 static ret_t input_dispatch(run_info_t* info) {
   ret_t ret = info->dispatch(info->dispatch_ctx, &(info->req));
@@ -55,101 +49,45 @@ static ret_t input_dispatch(run_info_t* info) {
 }
 
 static ret_t input_dispatch_one_event(run_info_t* info) {
-/*
-  struct input_event e;
-  event_queue_req_t* req = &(info->req);
-  int ret = read(info->fd, &e, sizeof(e));
+    mouse_event_notify      mse_event;
+    event_queue_req_t* req = &(info->req);
+    int ret = read(info->fd, (void *)&mse_event, sizeof(mouse_event_notify));
+    int x = mse_event.xmovement*info->max_x/936;
+    int y = (936-mse_event.ymovement)*info->max_y/936;
 
-  if (ret != sizeof(e)) {
-    printf("%s:%d read failed(ret=%d, errno=%d)\n", __func__, __LINE__, ret, errno);
-  }
-
-  return_value_if_fail(ret == sizeof(e), RET_FAIL);
-
-  switch (e.type) {
-    case EV_KEY: {
-      if (e.code == BTN_LEFT || e.code == BTN_RIGHT || e.code == BTN_MIDDLE ||
-          e.code == BTN_TOUCH) {
-        req->event.type = e.value ? EVT_POINTER_DOWN : EVT_POINTER_UP;
-      } else {
-        req->event.type = e.value ? EVT_KEY_DOWN : EVT_KEY_UP;
-        req->key_event.key = map_key(e.code);
-
-        return input_dispatch(info);
-      }
-
-      break;
+    if (ret < 0) {
+        fprintf(stderr, "read mouse event error, abort.\n");
+        return RET_FAIL;
     }
-    case EV_ABS: {
-      switch (e.code) {
-        case ABS_X: {
-          req->pointer_event.x = e.value;
-          break;
-        }
-        case ABS_Y: {
-          req->pointer_event.y = e.value;
-          break;
-        }
-        default:
-          break;
-      }
-
-      if (req->event.type == EVT_NONE) {
-        req->event.type = EVT_POINTER_MOVE;
-      }
-
-      break;
+    if (ret < sizeof(mouse_event_notify)) {
+        fprintf(stderr, "read mouse event invalid, continue.\n");
+        return RET_FAIL;
     }
-    case EV_REL: {
-      switch (e.code) {
-        case REL_X: {
-          req->pointer_event.x += e.value;
 
-          if (req->pointer_event.x < 0) {
-            req->pointer_event.x = 0;
-          }
-          if (req->pointer_event.x > info->max_x) {
-            req->pointer_event.x = info->max_x;
-          }
-          break;
+    info->x = x;
+    info->y = y;
+    req->pointer_event.x = x;
+    req->pointer_event.y = y;
+
+    if (mse_event.kstat & MOUSE_LEFT) {
+        if(info->pressed) {
+            req->pointer_event.e.type = EVT_POINTER_MOVE;
+        } else {
+            req->pointer_event.e.type = EVT_POINTER_DOWN;
         }
-        case REL_Y: {
-          req->pointer_event.y += e.value;
-          if (req->pointer_event.y < 0) {
-            req->pointer_event.y = 0;
-          }
-          if (req->pointer_event.y > info->max_y) {
-            req->pointer_event.y = info->max_y;
-          }
-          break;
+        info->pressed = TRUE;
+    } else {
+        if(info->pressed) {
+            req->pointer_event.e.type = EVT_POINTER_UP;
+        } else {
+            req->pointer_event.e.type = EVT_POINTER_MOVE;
         }
-        default:
-          break;
-      }
-
-      if (req->event.type == EVT_NONE) {
-        req->event.type = EVT_POINTER_MOVE;
-      }
-
-      break;
+        info->pressed = FALSE;
     }
-    case EV_SYN: {
-      switch (req->event.type) {
-        case EVT_POINTER_DOWN:
-        case EVT_POINTER_MOVE:
-        case EVT_POINTER_UP: {
-          return input_dispatch(info);
-        }
-        default:
-          break;
-      }
-      break;
-    }
-    default:
-      break;
-  }
-*/
-  return RET_OK;
+
+    input_dispatch(info);
+
+    return RET_OK;
 }
 
 void* input_run(void* ctx) {

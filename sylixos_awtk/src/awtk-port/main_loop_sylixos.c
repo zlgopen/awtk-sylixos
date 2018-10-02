@@ -15,7 +15,7 @@
 /**
  * history:
  * ================================================================
- * 2018-09-09 li xianjing <xianjimli@hotmail.com> created
+ * 2018-10-01 li xianjing <xianjimli@hotmail.com> created
  *
  */
 
@@ -36,8 +36,7 @@
 #include "main_loop_sylixos.h"
 
 #define FB_DEVICE_FILENAME "/dev/fb0"
-#define TS_DEVICE_FILENAME "/dev/input/event0"
-#define KB_DEVICE_FILENAME "/dev/input/event1"
+#define MOUSE_DEV_NAME      "/dev/input/xmse"
 
 static ret_t main_loop_sylixos_destroy(main_loop_t* l) {
   main_loop_simple_t* loop = (main_loop_simple_t*)l;
@@ -57,7 +56,7 @@ main_loop_t* main_loop_init(int w, int h) {
   loop->base.destroy = main_loop_sylixos_destroy;
   canvas_init(&(loop->base.canvas), lcd, font_manager());
 
-  input_thread_run(KB_DEVICE_FILENAME, main_loop_queue_event, loop, lcd->w, lcd->h);
+  input_thread_run(MOUSE_DEV_NAME, main_loop_queue_event, loop, lcd->w, lcd->h);
 
   return (main_loop_t*)loop;
 }

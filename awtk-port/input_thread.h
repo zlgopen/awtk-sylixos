@@ -1,7 +1,7 @@
 ﻿/**
  * File:   input_thread.h
  * Author: AWTK Develop Team
- * Brief:  thread to read /dev/input/
+ * Brief:  thread to read mouse events
  *
  * Copyright (c) 2018 - 2018  Guangzhou ZHIYUAN Electronics Co.,Ltd.
  *
@@ -15,7 +15,7 @@
 /**
  * History:
  * ================================================================
- * 2018-09-07 Li XianJing <xianjimli@hotmail.com> created
+ * 2018-10-02 Li XianJing <xianjimli@hotmail.com> created
  *
  */
 
