@@ -8,7 +8,7 @@
 </OutputSetting>
 <BuildSetting CoustomCfgMakefile="false" NeedReBuild="false" NotScanSourceFile="false"/>
 <UploadPath>
-<PairItem key="$(WORKSPACE_sylixos_awtk)/$(Output)/strip/sylixos_awtk" value="/apps/sylixos_awtk/sylixos_awtk"/>
+<PairItem key="$(WORKSPACE_sylixos_awtk)/Debug/sylixos_awtk" value="/apps/syslixos_awtk"/>
 </UploadPath>
 <DeviceSetting DevName="192.168.7.30" WorkDir="/apps/sylixos_awtk"/>
 </SylixOSSetting>

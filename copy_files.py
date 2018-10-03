@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 
 import os
 import glob
@@ -12,8 +12,15 @@ def joinPath(root, subdir):
 # XXX: make sure no no ascii chars in the path name.
 
 SRC_ROOT_DIR=os.getcwd();
-DST_ROOT='C:\\work\\awtk-sylixos\\sylixos_awtk\\src';
 
+DST_DEMOS_ROOT=joinPath(SRC_ROOT_DIR, 'sylixos_awtk/src')
+DST_AWTK_ROOT=joinPath(SRC_ROOT_DIR, 'sylixos_awtk/src')
+
+###################################################	
+# copy awtk
+###################################################	
+
+DST_ROOT=DST_AWTK_ROOT
 def copyFile(src, dst):
     s = joinPath(SRC_ROOT_DIR, src)
     d = joinPath(dst, src)
@@ -46,7 +53,6 @@ copyFiles('awtk/src/ui_loader', DST_ROOT)
 copyFiles('awtk/src/image_loader', DST_ROOT)
 copyFiles('awtk/src/ext_widgets', DST_ROOT)
 copyFiles('awtk/src/widget_animators', DST_ROOT)
-copyFiles('awtk/demos/assets', DST_ROOT)
 copyFiles('awtk/src/platforms/pc', DST_ROOT)
 
 copyFile('awtk/src/awtk.c', DST_ROOT)
@@ -79,10 +85,6 @@ for f in MAIN_LOOP_FILES:
     filename=os.path.join('awtk/src/main_loop', f);
     copyFile(filename, DST_ROOT)
 
-DEMO_FILES=['assets.h', 'assets.c', 'demo_main.c', 'demo_ui_app.c', 'common.inc']
-for f in DEMO_FILES:
-    filename=os.path.join('awtk/demos', f);
-    copyFile(filename, DST_ROOT)
 
 
 STB_FILES=['stb_image.h', 'stb_sprintf.h', 'stb_truetype.h', 'stb_textedit.h']
@@ -110,3 +112,14 @@ for f in UNIBREAK_FILES:
     filename=os.path.join('awtk/3rd/libunibreak/src/', f);
     copyFile(filename, DST_ROOT)
 	
+	
+###################################################	
+# copy demos
+###################################################	
+
+DST_ROOT=DST_DEMOS_ROOT
+DEMO_FILES=['assets.h', 'assets.c', 'demo_main.c', 'demo_ui_app.c', 'common.inc']
+for f in DEMO_FILES:
+    filename=os.path.join('awtk/demos', f);
+    copyFile(filename, DST_ROOT)
+copyFiles('awtk/demos/assets', DST_ROOT)	

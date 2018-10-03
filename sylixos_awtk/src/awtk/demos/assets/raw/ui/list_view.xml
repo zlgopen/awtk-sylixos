@@ -1,0 +1,10 @@
+<window name="main" anim_hint="htranslate" layout="c1 h30 m5 s5">
+    <button name="open:list_view_d" text="Desktop Style"/>
+    <button name="open:list_view_m" text="Mobile Style"/>
+    <button name="open:list_view_vh" text="Variable Height"/>
+    <button name="open:list_view_h" text="Horizontal"/>
+    <button name="open:image_list" text="Image List"/>
+    <button name="open:select1" text="Single Choose"/>
+    <button name="open:selectm" text="Multiple Choose"/>
+    <button name="close" text="Close"/>
+</window>

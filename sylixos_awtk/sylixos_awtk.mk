@@ -14,7 +14,7 @@
 #
 # 创   建   人: RealEvo-IDE
 #
-# 文件创建日期: 2018 年 09 月 30 日
+# 文件创建日期: 2018 年 10 月 03 日
 #
 # 描        述: 本文件由 RealEvo-IDE 生成，用于配置 Makefile 功能，请勿手动修改
 #*********************************************************************************************************
@@ -204,18 +204,17 @@ src/sylixos_awtk.c
 # Header file search path (eg. LOCAL_INC_PATH := -I"Your header files search path")
 #*********************************************************************************************************
 LOCAL_INC_PATH :=  \
--I"./src/awtk" \
--I"./src/awtk/src" \
--I"./src/awtk-port" \
--I"./src/awtk/3rd" \
--I"./src/awtk/3rd/agge/include" \
--I"./src/awtk-port" \
--I"./src/awtk/3rd/gpinyin/include" \
--I"./src/awtk/3rd/libunibreak/src" \
--I"./src/awtk/3rd/nanovg/src" \
--I"./src/awtk/3rd/stb" \
--I"./src/awtk/demos" \
--I"./src/awtk/src/ext_widgets"
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk-port" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/demos" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/src" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/src/ext_widgets" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/agge/include" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/agge/src" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/libunibreak/src" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/nanovg/src" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/stb"
 
 #*********************************************************************************************************
 # Pre-defined macro (eg. -DYOUR_MARCO=1)
@@ -232,7 +231,7 @@ LOCAL_CXXFLAGS :=
 #*********************************************************************************************************
 # Depend library (eg. LOCAL_DEPEND_LIB := -la LOCAL_DEPEND_LIB_PATH := -L"Your library search path")
 #*********************************************************************************************************
-LOCAL_DEPEND_LIB      := 
+LOCAL_DEPEND_LIB := 
 LOCAL_DEPEND_LIB_PATH := 
 
 #*********************************************************************************************************
@@ -254,9 +253,9 @@ LOCAL_USE_OMP := no
 #*********************************************************************************************************
 # User link command
 #*********************************************************************************************************
-LOCAL_PRE_LINK_CMD   := 
-LOCAL_POST_LINK_CMD  := 
-LOCAL_PRE_STRIP_CMD  := 
+LOCAL_PRE_LINK_CMD := 
+LOCAL_POST_LINK_CMD := 
+LOCAL_PRE_STRIP_CMD := 
 LOCAL_POST_STRIP_CMD := 
 
 #*********************************************************************************************************

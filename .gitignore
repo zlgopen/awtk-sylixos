@@ -1,6 +1,6 @@
-awtk
 *.o
 *.obj
 *.a
 *.ko
 *.so
+/awtk

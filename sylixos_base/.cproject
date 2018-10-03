@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="org.eclipse.cdt.core.default.config.142718687">
-			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.142718687" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
+		<cconfiguration id="org.eclipse.cdt.core.default.config.1534610708">
+			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1534610708" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -12,13 +12,15 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry">
 		<pathentry base-ref="sylixos_base" include="C:/work/awtk-sylixos/sylixos_base/libcextern/libcextern/include" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_base" include="C:/work/awtk-sylixos/sylixos_base/libsylixos/SylixOS" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_base" include="C:/ACOINFO/RealEvo/compiler/arm-sylixos-toolchain/lib/gcc/arm-sylixos-eabi/4.9.3/include" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_base" include="C:/ACOINFO/RealEvo/compiler/arm-sylixos-toolchain/arm-sylixos-eabi/include" kind="inc" path="" system="true"/>
+		<pathentry kind="mac" name="__GNUC__" path="" value="4"/>
 		<pathentry base-ref="sylixos_base" include="C:/work/awtk-sylixos/sylixos_base/libsylixos/SylixOS/include/network" kind="inc" path="" system="true"/>
+		<pathentry kind="mac" name="__arm__" path="" value=""/>
+		<pathentry kind="mac" name="SYLIXOS" path="" value=""/>
 		<pathentry base-ref="sylixos_base" include="C:/work/awtk-sylixos/sylixos_base/libsylixos/SylixOS/include" kind="inc" path="" system="true"/>
 	</storageModule>
 </cproject>
