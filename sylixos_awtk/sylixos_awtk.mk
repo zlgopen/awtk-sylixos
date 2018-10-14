@@ -33,22 +33,21 @@ LOCAL_TARGET_NAME := sylixos_awtk
 # Source list
 #*********************************************************************************************************
 LOCAL_SRCS :=  \
-src/awtk/3rd/agge/src/agge/math.cpp \
-src/awtk/3rd/agge/src/agge/nanovg_agge.cpp \
-src/awtk/3rd/agge/src/agge/nanovg_vertex.cpp \
-src/awtk/3rd/agge/src/agge/stroke.cpp \
-src/awtk/3rd/agge/src/agge/stroke_features.cpp \
-src/awtk/3rd/agge/src/agge/vector_rasterizer.cpp \
-src/awtk/3rd/libunibreak/src/graphemebreak.c \
-src/awtk/3rd/libunibreak/src/graphemebreakdata.c \
-src/awtk/3rd/libunibreak/src/linebreak.c \
-src/awtk/3rd/libunibreak/src/linebreakdata.c \
-src/awtk/3rd/libunibreak/src/linebreakdef.c \
-src/awtk/3rd/libunibreak/src/unibreakbase.c \
-src/awtk/3rd/libunibreak/src/unibreakdef.c \
-src/awtk/3rd/libunibreak/src/wordbreak.c \
-src/awtk/3rd/libunibreak/src/wordbreakdata.c \
-src/awtk/3rd/nanovg/src/nanovg.c \
+src/awtk/3rd/agge/agge/math.cpp \
+src/awtk/3rd/agge/agge/stroke.cpp \
+src/awtk/3rd/agge/agge/stroke_features.cpp \
+src/awtk/3rd/agge/agge/vector_rasterizer.cpp \
+src/awtk/3rd/libunibreak/emojidef.c \
+src/awtk/3rd/libunibreak/graphemebreak.c \
+src/awtk/3rd/libunibreak/linebreak.c \
+src/awtk/3rd/libunibreak/linebreakdata.c \
+src/awtk/3rd/libunibreak/linebreakdef.c \
+src/awtk/3rd/libunibreak/unibreakbase.c \
+src/awtk/3rd/libunibreak/unibreakdef.c \
+src/awtk/3rd/libunibreak/wordbreak.c \
+src/awtk/3rd/nanovg/agge/nanovg_agge.cpp \
+src/awtk/3rd/nanovg/agge/nanovg_vertex.cpp \
+src/awtk/3rd/nanovg/base/nanovg.c \
 src/awtk/demos/assets.c \
 src/awtk/demos/demo_main.c \
 src/awtk/demos/demo_ui_app.c \
@@ -60,6 +59,7 @@ src/awtk/src/base/bitmap.c \
 src/awtk/src/base/buffer.c \
 src/awtk/src/base/button.c \
 src/awtk/src/base/button_group.c \
+src/awtk/src/base/calibration_win.c \
 src/awtk/src/base/canvas.c \
 src/awtk/src/base/check_button.c \
 src/awtk/src/base/color.c \
@@ -133,11 +133,32 @@ src/awtk/src/base/window.c \
 src/awtk/src/base/window_animator.c \
 src/awtk/src/base/window_manager.c \
 src/awtk/src/base/wstr.c \
-src/awtk/src/blend/blend_image_565_565.c \
-src/awtk/src/blend/blend_image_565_8888.c \
-src/awtk/src/blend/blend_image_8888_565.c \
-src/awtk/src/blend/blend_image_8888_8888.c \
+src/awtk/src/blend/blend_image_bgr565_bgr565.c \
+src/awtk/src/blend/blend_image_bgr565_bgra8888.c \
+src/awtk/src/blend/blend_image_bgr565_rgba8888.c \
+src/awtk/src/blend/blend_image_bgr888_bgr565.c \
+src/awtk/src/blend/blend_image_bgr888_bgra8888.c \
+src/awtk/src/blend/blend_image_bgr888_rgba8888.c \
+src/awtk/src/blend/blend_image_bgra8888_bgr565.c \
+src/awtk/src/blend/blend_image_bgra8888_bgra8888.c \
+src/awtk/src/blend/blend_image_bgra8888_rgba8888.c \
+src/awtk/src/blend/blend_image_rgb565_bgr565.c \
+src/awtk/src/blend/blend_image_rgb565_bgra8888.c \
+src/awtk/src/blend/blend_image_rgb565_rgba8888.c \
+src/awtk/src/blend/blend_image_rgba8888_bgr565.c \
+src/awtk/src/blend/blend_image_rgba8888_bgra8888.c \
+src/awtk/src/blend/blend_image_rgba8888_rgba8888.c \
+src/awtk/src/blend/fill_image_bgr565.c \
+src/awtk/src/blend/fill_image_bgr888.c \
+src/awtk/src/blend/fill_image_bgra8888.c \
+src/awtk/src/blend/fill_image_rgb565.c \
+src/awtk/src/blend/fill_image_rgba8888.c \
 src/awtk/src/blend/image_g2d.c \
+src/awtk/src/blend/rotate_image_bgr565.c \
+src/awtk/src/blend/rotate_image_bgr888.c \
+src/awtk/src/blend/rotate_image_bgra8888.c \
+src/awtk/src/blend/rotate_image_rgb565.c \
+src/awtk/src/blend/rotate_image_rgba8888.c \
 src/awtk/src/blend/soft_g2d.c \
 src/awtk/src/blend/stm32_g2d.c \
 src/awtk/src/ext_widgets/color_picker/color_component.c \
@@ -197,8 +218,7 @@ src/awtk/src/xml/xml_parser.c \
 src/awtk-port/input_dispatcher.c \
 src/awtk-port/input_thread.c \
 src/awtk-port/lcd_sylixos_fb.c \
-src/awtk-port/main_loop_sylixos.c \
-src/sylixos_awtk.c
+src/awtk-port/main_loop_sylixos.c
 
 #*********************************************************************************************************
 # Header file search path (eg. LOCAL_INC_PATH := -I"Your header files search path")
@@ -210,11 +230,11 @@ LOCAL_INC_PATH :=  \
 -I"$(WORKSPACE_sylixos_awtk)/src/awtk/demos" \
 -I"$(WORKSPACE_sylixos_awtk)/src/awtk/src" \
 -I"$(WORKSPACE_sylixos_awtk)/src/awtk/src/ext_widgets" \
--I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/agge/include" \
--I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/agge/src" \
--I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/libunibreak/src" \
--I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/nanovg/src" \
--I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/stb"
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/agge" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/libunibreak" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/stb" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/nanovg" \
+-I"$(WORKSPACE_sylixos_awtk)/src/awtk/3rd/nanovg/base"
 
 #*********************************************************************************************************
 # Pre-defined macro (eg. -DYOUR_MARCO=1)

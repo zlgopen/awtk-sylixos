@@ -34,15 +34,15 @@ python copy_files.py
 
 * 2.包含下列路径
 ```
-	sylixos_awtk/src/awtk/3rd/agge/include
-	sylixos_awtk/src/awtk/3rd/libunibreak/src
-	sylixos_awtk/src/awtk/3rd/agge/src
+	sylixos_awtk/src/awtk/3rd
+	sylixos_awtk/src/awtk/3rd/stb
+	sylixos_awtk/src/awtk/3rd/libunibreak
+	sylixos_awtk/src/awtk/3rd/agge
 	sylixos_awtk/src/awtk/src/ext_widgets
 	sylixos_awtk/src/awtk/demos
 	sylixos_awtk/src/awtk
-	sylixos_awtk/src/awtk/3rd/nanovg/src
-	sylixos_awtk/src/awtk/3rd
-	sylixos_awtk/src/awtk/3rd/stb
+	sylixos_awtk/src/awtk/3rd/nanovg
+	sylixos_awtk/src/awtk/3rd/nanovg/base
 	sylixos_awtk/src/awtk-port
 	sylixos_awtk/src/awtk/src
 ```

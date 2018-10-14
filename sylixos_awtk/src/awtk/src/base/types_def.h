@@ -35,6 +35,8 @@
 
 #ifdef HAS_STDIO
 #include <stdio.h>
+#else
+#define STBI_NO_STDIO
 #endif /*HAS_STDIO*/
 
 #include <stdlib.h>
@@ -443,7 +445,7 @@ typedef enum _app_type_t {
 #ifdef WITH_NANOVG_AGGE
 #ifndef WITH_NANOVG_SOFT
 #define WITH_NANOVG_SOFT
-#endif/*WITH_NANOVG_SOFT*/
-#endif/*WITH_NANOVG_AGGE*/
+#endif /*WITH_NANOVG_SOFT*/
+#endif /*WITH_NANOVG_AGGE*/
 
 #endif /*TYPES_DEF_H*/

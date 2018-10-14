@@ -12,26 +12,27 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry">
 		<pathentry base-ref="sylixos_awtk" include="C:/ACOINFO/RealEvo/compiler/arm-sylixos-toolchain/lib/gcc/arm-sylixos-eabi/4.9.3/include" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_base/libsylixos/SylixOS" kind="inc" path="" system="true"/>
-		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/agge/include" kind="inc" path="" system="true"/>
-		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/libunibreak/src" kind="inc" path="" system="true"/>
-		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/agge/src" kind="inc" path="" system="true"/>
 		<pathentry kind="mac" name="__arm__" path="" value=""/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/src/ext_widgets" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/demos" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_base/libsylixos/SylixOS/include" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk" kind="inc" path="" system="true"/>
-		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/nanovg/src" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd" kind="inc" path="" system="true"/>
+		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/nanovg/base" kind="inc" path="" system="true"/>
+		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/nanovg" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/stb" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_base/libcextern/libcextern/include" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk-port" kind="inc" path="" system="true"/>
+		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/libunibreak" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_base/libsylixos/SylixOS/include/network" kind="inc" path="" system="true"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/ACOINFO/RealEvo/compiler/arm-sylixos-toolchain/arm-sylixos-eabi/include" kind="inc" path="" system="true"/>
 		<pathentry kind="mac" name="HAS_AWTK_CONFIG" path="" value="1"/>
 		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/src" kind="inc" path="" system="true"/>
+		<pathentry base-ref="sylixos_awtk" include="C:/work/awtk-sylixos/sylixos_awtk/src/awtk/3rd/agge" kind="inc" path="" system="true"/>
 		<pathentry kind="mac" name="__GNUC__" path="" value="4"/>
 		<pathentry kind="mac" name="SYLIXOS" path="" value=""/>
 	</storageModule>

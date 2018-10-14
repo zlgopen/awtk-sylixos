@@ -89,6 +89,10 @@ widget_t* window_create(widget_t* parent, xy_t x, xy_t y, wh_t w, wh_t h) {
   return_value_if_fail(window_manager_open_window(parent, widget) == RET_OK, NULL);
   widget_update_style(widget);
 
+#ifdef ENABLE_MEM_LEAK_CHECK
+  tk_mem_dump();
+#endif /*ENABLE_MEM_LEAK_CHECK*/
+
   return widget;
 }
 
